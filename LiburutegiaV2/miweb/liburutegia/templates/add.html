@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center><h1>Post bat gehitzeko ondorengo formularioa bete</h1></center>
+<br><br>
+
+<form action="/add/addpost/" method="post">
+    {% csrf_token %}
+    Liburuaren-aren izenburua <input type="text" name="izenburua">
+    Liburuaren-aren laburpena <input type="text" name="laburpena">
+    <label for="autorea">Autorea</label>
+    <select class="form-control" id="autorea" name="autorea">
+        <option selected disabled>Aukeratu</option>
+        {% for autore in autoreak %}
+            <option value="{{ autore.id }}">{{ autore.izena }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Sortu</button>
+</form>
+
+{% endblock content %}

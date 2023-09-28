@@ -69,7 +69,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    keys = pygame.key.get_pressed()
+    keys = pygame.key.get_pressed()su
     if keys[pygame.K_LEFT]:
         player_x -= player_speed + player_speed_bonus
     if keys[pygame.K_RIGHT]:

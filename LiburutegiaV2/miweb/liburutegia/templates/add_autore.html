@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center><h1>Autore berria gehitu</h1></center>
+<br><br>
+
+<form action="/add_autoreak/" method="post">
+    {% csrf_token %}
+    <label for="izena">Izena</label>
+    <input type="text" id="izena" name="izena" required>
+    <br><br>
+    
+    <label for="nanZenbakia">Nan Zenbakia</label>
+    <input type="text" id="nanZenbakia" name="nanZenbakia" required>
+    <br><br>
+    
+    <label for="jaiotzaData">Jaiotza Data</label>
+    <input type="date" id="jaiotzaData" name="jaiotzaData" required>
+    <br><br>
+    
+    <button type="submit">Gehitu</button>
+</form>
+
+<br><br>
+
+<h1>Autoreak</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Izena</th>
+        <th>Nan Zenbakia</th>
+        <th>Jaiotza Data</th>
+        <th>Ezabatu</th>
+    </tr>
+    {% for autore in autoreak %}
+    <tr>
+        <td>{{ autore.id }}</td>
+        <td>{{ autore.izena }}</td>
+        <td>{{ autore.nanZenbakia }}</td>
+        <td>{{ autore.jaiotzaData }}</td>
+        <td><a href="/ezabatu_autore/{{autore.id}}/" color="red">Ezabatu</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
