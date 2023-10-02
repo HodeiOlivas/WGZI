@@ -1,35 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <center><h1 >Liburu guztiak bistaratu</h1></center>
-
-    <table border="1">
-<tr>
-        <th>ID</th>
-        <th>Izenburua</th>
-        <th>Laburpena</th>
-        <th>Autorea</th>
-        <th>Ezabatu</th>
-        <th>Aldatu</th>
-    </tr>
-    {% for liburu in liburua %}
-
-    <tr>
-    <div>
-      <td>  <p>{{liburu.id}}</p></td>
-      <td><p><h2>{{liburu.izenburua}}</h2></p></td>
-         <td><p><h2>{{liburu.laburpena}}</h2></p></td>
-        <td><p><h2>{{liburu.autorea.izena}}</h2></p></td>
-
-
-       <td> <a href="/ezabatu_liburua/{{liburu.id}}/" color="red">Ezabatu</a></td>
-        <td> <a href="/aldatu/{{liburu.id}}/" color="red">Aldatu</a></td>
+    <div class="container mt-5">
+        <h1 class="text-center">Liburu guztiak bistaratu</h1>
     </div>
-        </tr>
-    {% endfor %}
-    </table>
-    <a href='/add'>Gehitu Liburua</a>
-    <br>
-    <a href='/add_autore'>Gehitu Autorea</a>
-
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Izenburua</th>
+                    <th>Laburpena</th>
+                    <th>Autorea</th>
+                    <th>Ezabatu</th>
+                    <th>Aldatu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for liburu in liburua %}
+                <tr>
+                    <td>{{ liburu.id }}</td>
+                    <td>{{ liburu.izenburua }}</td>
+                    <td>{{ liburu.laburpena }}</td>
+                    <td>{{ liburu.autorea.izena }}</td>
+                    <td><a href="/ezabatu_liburua/{{ liburu.id }}" class="btn btn-danger">Ezabatu</a></td>
+                    <td><a href="/aldatu/{{ liburu.id }}" class="btn btn-warning">Aldatu</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container mt-3">
+        <a href='/add' class="btn btn-primary">Gehitu Liburua</a>
+        <a href='/add_autore' class="btn btn-success">Gehitu Autorea</a>
+    </div>
 {% endblock content %}

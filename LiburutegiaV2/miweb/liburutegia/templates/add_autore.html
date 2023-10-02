@@ -1,47 +1,59 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<center><h1>Autore berria gehitu</h1></center>
-<br><br>
-
-<form action="/add_autoreak/" method="post">
-    {% csrf_token %}
-    <label for="izena">Izena</label>
-    <input type="text" id="izena" name="izena" required>
+<div class="container mt-5">
+    <h1 class="text-center">Autore berria gehitu</h1>
     <br><br>
-    
-    <label for="nanZenbakia">Nan Zenbakia</label>
-    <input type="text" id="nanZenbakia" name="nanZenbakia" required>
+
+    <form action="/add_autoreak/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="izena">Izena</label>
+            <input type="text" class="form-control" id="izena" name="izena" required>
+        </div>
+        <br><br>
+
+        <div class="form-group">
+            <label for="nanZenbakia">Nan Zenbakia</label>
+            <input type="text" class="form-control" id="nanZenbakia" name="nanZenbakia" required>
+        </div>
+        <br><br>
+
+        <div class="form-group">
+            <label for="jaiotzaData">Jaiotza Data</label>
+            <input type="date" class="form-control" id="jaiotzaData" name="jaiotzaData" required>
+        </div>
+        <br><br>
+
+        <button type="submit" class="btn btn-primary">Gehitu</button>
+    </form>
+
     <br><br>
-    
-    <label for="jaiotzaData">Jaiotza Data</label>
-    <input type="date" id="jaiotzaData" name="jaiotzaData" required>
-    <br><br>
-    
-    <button type="submit">Gehitu</button>
-</form>
 
-<br><br>
+    <h1>Autoreak</h1>
 
-<h1>Autoreak</h1>
-
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Izena</th>
-        <th>Nan Zenbakia</th>
-        <th>Jaiotza Data</th>
-        <th>Ezabatu</th>
-    </tr>
-    {% for autore in autoreak %}
-    <tr>
-        <td>{{ autore.id }}</td>
-        <td>{{ autore.izena }}</td>
-        <td>{{ autore.nanZenbakia }}</td>
-        <td>{{ autore.jaiotzaData }}</td>
-        <td><a href="/ezabatu_autore/{{autore.id}}/" color="red">Ezabatu</a></td>
-    </tr>
-    {% endfor %}
-</table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Izena</th>
+                <th>Nan Zenbakia</th>
+                <th>Jaiotza Data</th>
+                <th>Ezabatu</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autore in autoreak %}
+            <tr>
+                <td>{{ autore.id }}</td>
+                <td>{{ autore.izena }}</td>
+                <td>{{ autore.nanZenbakia }}</td>
+                <td>{{ autore.jaiotzaData }}</td>
+                <td><a href="/ezabatu_autore/{{ autore.id }}" class="btn btn-danger">Ezabatu</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock content %}

@@ -8,4 +8,6 @@ urlpatterns = [
     path('add_autoreak/', views.add_autoreak, name='add_autoreak'),
     path('add_autore/', views.add_autore, name='add_autore'),
     path('ezabatu_autore/<int:autore_id>/', views.ezabatu_autore, name='ezabatu_autore'),
+    path('aldatu/<int:liburu_id>/', views.aldatu, name='aldatu'),
+    path('aldatuLiburua/', views.aldatuLiburua, name='aldatuLiburua'),
 ]

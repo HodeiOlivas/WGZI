@@ -1,0 +1,43 @@
+
+/* Estilo para el título */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+    color: #DE341D;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 80%;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilo para las celdas de la tabla */
+table td, table th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center; /* Centra el texto en las celdas */
+}
+
+/* Estilo para los enlaces */
+table a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para los enlaces al pasar el mouse */
+table a:hover {
+    color: darkred;
+}
+
+/* Estilo para los títulos h2 */
+h2 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centra el texto en los títulos h2 */
+}

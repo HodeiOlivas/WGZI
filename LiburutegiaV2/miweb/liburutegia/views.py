@@ -46,3 +46,31 @@ def ezabatu_autore(request, autore_id):
 def add_autore(request):
     autoreak = Autoreak.objects.all()
     return render(request, 'add_autore.html', {'autoreak': autoreak})
+
+def aldatu(request, liburu_id):
+    liburua = Liburua.objects.get(pk=liburu_id)
+    autoreak = Autoreak.objects.all()
+    return render(request,'aldatu.html', {'liburua':liburua, 'autoreak': autoreak})
+
+def aldatuLiburua(request):
+    # Obtener el ID del libro que deseas modificar desde la solicitud POST
+    liburu_id = request.POST["id"]
+
+    # Recuperar el libro existente desde la base de datos
+    liburua = Liburua.objects.get(pk=liburu_id)
+
+    # Obtener los datos actualizados desde la solicitud POST
+    iz = request.POST["izenburua"]
+    lb = request.POST["laburpena"]
+    at_id = request.POST["autorea"]
+    autorea = Autoreak.objects.get(id=at_id)
+
+    # Actualizar los campos del libro existente con los nuevos datos
+    liburua.izenburua = iz
+    liburua.laburpena = lb
+    liburua.autorea = autorea
+
+    # Guardar el libro modificado en la base de datos
+    liburua.save()
+
+    return HttpResponseRedirect(reverse('index'))
