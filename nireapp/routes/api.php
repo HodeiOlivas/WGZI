@@ -29,3 +29,4 @@ Route::get('/atasak', [AtasaController::class, 'index']);
 Route::get('/atasak/{id}', [AtasaController::class, 'show']);
 Route::put('/atasak/{id}', [AtasaController::class, 'update']);
 Route::delete('/atasak/{id}', [AtasaController::class, 'destroy']);
+Route::get('/atasak/{id}/edit', [AtasaController::class, 'edit'])->name('atasak.edit');
